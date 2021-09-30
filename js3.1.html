@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="d1"></div>
+<div id="d2"></div>
+<div id="d3"></div>
+<button id="button1"></button>
+<script>
+    const node1 = document.getElementById("d1")
+    const node2 = document.getElementById("d2")
+    const node3 = document.getElementById("d3")
+    const button = document.getElementById("button1")
+
+    node1.innerText = "blue"
+    node2.innerText = "purple"
+    node3.innerText = "green"
+    button.innerText = "Change"
+
+
+    let list = document.getElementsByTagName("div")
+
+    for (let i = 0; i < list.length; i++) {
+        list[i].style.backgroundColor = "red";
+    }
+
+    button.onclick = giveColor
+
+    function giveColor(){
+        node1.style.backgroundColor = "blue"
+        node2.style.backgroundColor = "purple"
+        node3.style.backgroundColor = "green"
+    }
+
+</script>
+</body>
+</html>

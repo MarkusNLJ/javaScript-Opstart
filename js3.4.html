@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table style="border-collapse: collapse; font-size: 0.9em; font-family: sans-serif; min-width: 400px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); margin-left: auto; margin-right: auto;">
+    <tr id="header">
+        <th>Id</th>
+        <th>Year</th>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Price</th>
+    </tr>
+</table>
+<table id="carTable" style="border-collapse: collapse; font-size: 0.9em; font-family: sans-serif; min-width: 400px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); margin-left: auto; margin-right: auto;">
+</table>
+<br>
+<div style="text-align: center">
+    <a>Price: </a>
+    <input type="number", id="price-input", placeholder="Price less than">
+    <button id="price-filter">Click to filter</button>
+</div>
+<br>
+<div style="text-align: center">
+    <a>Make: </a>
+    <input type="text", id="make-input", placeholder="Search for make">
+    <button id="make-filter">Click to filter</button>
+</div>
+<br>
+<div style="text-align: center">
+    <button id="carList">Get list</button>
+</div>
+<script>
+
+    const table = document.getElementById("carTable")
+
+    const cars = [
+        { id: 1, year: 1997, make: 'Ford', model: 'E350', price: 3000 },
+        { id: 2, year: 1999, make: 'Chevy', model: 'Venture', price: 4900 },
+        { id: 3, year: 2000, make: 'Chevy', model: 'Venture', price: 5000 },
+        { id: 4, year: 1996, make: 'Jeep', model: 'Grand Cherokee', price: 4799 },
+        { id: 5, year: 2005, make: 'Volvo', model: 'V70', price: 44799 }
+    ];
+
+    createRows(cars)
+
+    function createRows(list){
+        const rows = list.map(n =>`
+        <tr>
+            <td>${n.id}</td>
+            <td>${n.year}</td>
+            <td>${n.make}</td>
+            <td>${n.model}</td>
+            <td>${n.price}</td>
+        </tr>
+        `)
+        document.getElementById("carTable").innerHTML = rows.join("")
+    }
+
+    document.getElementById("price-filter").onclick = (e) =>{
+        e.preventDefault()
+        let filtered = cars.filter(car=> car.price < document.getElementById("price-input").value)
+        createRows(filtered)
+    }
+
+    document.getElementById("make-filter").onclick = (e) =>{
+        e.preventDefault()
+        let filtered = cars.filter(car=> car.make.toLowerCase().includes(document.getElementById("make-input").value.toLowerCase()))
+        createRows(filtered)
+    }
+
+    document.getElementById("carList").onclick = (e) =>{
+        e.preventDefault()
+        createRows(cars)
+    }
+
+
+
+
+
+</script>
+</body>
+</html>

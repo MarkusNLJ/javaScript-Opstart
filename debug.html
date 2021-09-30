@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="d1"></div>
+<div id="d2"></div>
+<div id="d3"></div>
+<button id="button1"></button>
+<script>
+    const node1 = document.getElementById("d1")
+    const node2 = document.getElementById("d2")
+    const button3 = document.getElementById("button1")
+
+    button3.innerText = "change"
+    button3.onclick = changeText
+
+    function changeText(){
+        node1.innerText = "yeesss"
+    }
+
+    const list = document.getElementsByTagName("div")
+
+    for (let i = 0; i < list.length; i++) {
+        list[i].style.backgroundColor = "red";
+    }
+
+
+    let number = 12;
+    const n = "13";
+    number = 23
+
+    node1.innerText = number;
+    node2.innerText = n;
+    const messeage = true;
+    if (messeage){
+        node1.innerText = "u PUSSIO!"
+    } else {
+        node1.innerText = "AYO MY MAN!"
+    }
+
+
+</script>
+</body>
+</html>

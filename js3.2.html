@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="outer">
+<div id="div1" style="width: 25px; height: 25px;background-color:yellow; margin:1px;"></div>
+<div id="div2" style="width: 25px; height: 25px;background-color:yellow; margin:1px;"></div>
+<div id="div3" style="width: 25px; height: 25px;background-color:yellow; margin:1px;"></div>
+<div id="div4" style="width: 25px; height: 25px;background-color:yellow; margin:1px;"></div>
+<div id="div5" style="width: 25px; height: 25px;background-color:yellow; margin:1px;"></div>
+<div id="div6" style="width: 25px; height: 25px;background-color:yellow; margin:1px;"></div>
+<div id="div7" style="width: 25px; height: 25px;background-color:yellow; margin:1px;"></div>
+<div id="div8" style="width: 25px; height: 25px;background-color:yellow; margin:1px;"></div>
+<div id="div9" style="width: 25px; height: 25px;background-color:yellow; margin:1px;"></div>
+<div id="div10" style="width: 25px; height: 25px;background-color:yellow; margin:1px;"></div>
+    <br>
+<p id="text"></p>
+</div>
+<script>
+/*
+    const d1 = document.getElementById("div1")
+    const d2 = document.getElementById("div2")
+    d1.addEventListener("click", function (){sayHi(d1)})
+    d2.addEventListener("click", function (){sayHi(d2)}) //e.target
+
+    function sayHi(e){
+    console.log("Hi from " + e.getAttribute("id"))
+    }
+ */
+
+    const daddy = document.getElementById("outer")
+    const hiNode = document.getElementById("text")
+    daddy.addEventListener("click", function (e) {sayHi(e.target)})
+
+
+    function sayHi(e){
+    hiNode.innerText = "Hi from " + e.getAttribute("id")
+    }
+</script>
+</body>
+</html>

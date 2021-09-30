@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul id="list"></ul>
+<div>
+    <input type="text" placeholder="Enter new name" id="name-input">
+    <button id="button1">Add name</button>
+</div>
+<br>
+<div>
+    <button id="button2">Remove last</button>
+    <button id="button3">Remove first</button>
+</div>
+<script>
+    const ul = document.getElementById("list")
+
+    const names = ["Markus", "Alek", "Mette"]
+
+    const lis = names.map(n => `<li>${n}</li>`).join("")
+    ul.innerHTML = lis
+
+    document.getElementById("button1").onclick = (e) => {
+        const name = document.getElementById("name-input").value
+        const listElement = document.createElement("li");
+        listElement.appendChild(document.createTextNode(name))
+        ul.appendChild(listElement)
+    }
+
+    document.getElementById("button2").onclick = (e) => {
+    e.preventDefault()
+        ul.lastChild.remove(); // Remove from view
+        names.shift() // Remove from array
+        console.log(names)
+    }
+
+    document.getElementById("button3").onclick = (e) => {
+        e.preventDefault()
+        ul.firstChild.remove()
+        names.pop()
+        console.log(names)
+    }
+    /*
+    for (let i = 0; i < names.length; i++) {
+        const li = document.createElement('li')
+        li.innerText = names[i]
+        ul.appendChild(li)
+    }
+     */
+
+</script>
+</body>
+</html>
